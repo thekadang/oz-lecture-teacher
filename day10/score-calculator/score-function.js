@@ -1,9 +1,6 @@
 const MAX_SCORE = 105;
 const BONUS_SCORE = 5;
 
-let score;
-var grade;
-
 function promptScore() {
   // 사용자 입력
   let inputStr = prompt("점수를 입력하세요.");
@@ -27,7 +24,7 @@ function clacScore(input) {
 }
 
 function determinGrade(finalScore) {
-  let gerade;
+  let grade;
   // 등급 결정 (if문)
   if (finalScore >= 100) grade = "S";
   else if (finalScore >= 90) grade = "A";
