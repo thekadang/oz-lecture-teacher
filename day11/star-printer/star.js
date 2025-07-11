@@ -51,7 +51,6 @@ function printResult(input, stars) {
 
 // 기본과제
 const printNormalStars = function (input) {
-  console.log(input);
   const stars = getStars(input);
   printResult(input, stars);
 };
@@ -99,7 +98,7 @@ const printMultipleStars = (...multipleNums) => {
 
 console.log("Enter the number of stars (1-10):");
 const input = getPromptInput();
-// printNormalStars(input);
+printNormalStars(input);
 printReverseStars(input);
 printSquare(input);
 printPatterns();
