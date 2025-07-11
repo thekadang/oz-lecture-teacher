@@ -26,6 +26,7 @@ if (email.indexOf("@") < 0) {
   // @가 포함되어 있지 않으면,
   console.log("이메일 형식 확인하세요");
 }
+
 // String.trim()
 const textarea = `     배고프다!      `;
 console.log("textarea", textarea);
@@ -33,7 +34,8 @@ console.log("textarea", textarea.trim());
 
 // String.replace()
 // String.replaceAll()
-const needToDelDot = "안녕하세요. 나는 태구와 함께 삽니다.";
+// regex 정규표현식 활용하여 replace 사용도 가능
+const needToDelDot = ".안녕하세요. 나는 태구와 함께 삽니다.....";
 console.log("needToDelDot", needToDelDot);
 console.log("needToDelDot", needToDelDot.replace(".", ""));
 console.log("needToDelDot", needToDelDot.replaceAll(".", "|"));
