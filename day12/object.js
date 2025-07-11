@@ -12,3 +12,9 @@ const person = {
   },
 };
 console.log(person);
+
+// person의 age, isAdult 조회
+let age = person.age;
+console.log("age :", age);
+let isAdult = person.isAdult ? "성인" : "미성년자";
+console.log("isAdult :", isAdult);
