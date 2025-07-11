@@ -7,11 +7,14 @@ const person = {
   },
   age: 20,
   isAdult: true,
+  getFullName: function () {
+    return `${this.name.firstName} ${this.name.lastName}`;
+  },
   printInfo: function () {
     console.log("printInfo");
     console.log(`name: ${this.name.firstName} ${this.name.lastName}`);
-    console.log(`age: ${age}`);
-    console.log(`isAdult: ${isAdult}`);
+    console.log(`age: ${this.age}`);
+    console.log(`isAdult: ${this.isAdult}`);
   },
 };
 console.log(person);
@@ -41,4 +44,6 @@ for (const key in person) {
 // }
 
 // 객체 내의 함수 사용하기
-person.printInfo();
+// person.printInfo();
+const fullName = person.getFullName();
+console.log("fullName :", fullName);
