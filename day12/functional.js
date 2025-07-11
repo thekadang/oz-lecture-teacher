@@ -52,7 +52,23 @@ let numbersA = [1, 2, 3, 4, 5, 6];
 // });
 
 numbersA = numbersA.filter((num) => num % 2 === 0);
-console.log(numbersA);
+// console.log(numbersA);
 
 // reduce
-let numberB = [1, 2, 3, 4];
+let numbersB = [1, 2, 3, 4];
+// 배열에 있는 값의 총합
+// let sum = 0;
+// numbersB.forEach((num) => {
+//   sum += num;
+// });
+// console.log(sum);
+
+// const sum = (a, b) => {
+//   return a + b;
+// };
+
+// const sum1 = sum(sum(sum(sum(0, 1), 2), 3), 4);
+// console.log(sum1);
+
+const sum = numbersB.reduce((acc, num) => acc + num, 10);
+console.log(sum);
