@@ -51,7 +51,7 @@ for (const key in person) {
 const fullName = person.getFullName();
 console.log("fullName :", fullName);
 
-// 객체에 속성 추가
+// 객체에 속성 추가 / 삭제
 person.like = "apple";
 person.koreaAge = 22;
 person.likes = ["taegu", "coffee", 2, true];
