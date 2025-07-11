@@ -50,3 +50,11 @@ for (const key in person) {
 // person.printInfo();
 const fullName = person.getFullName();
 console.log("fullName :", fullName);
+
+// 객체에 속성 추가
+person.like = "apple";
+person.koreaAge = 22;
+person.likes = ["taegu", "coffee", 2, true];
+
+delete person.isAdult;
+console.log(person);
