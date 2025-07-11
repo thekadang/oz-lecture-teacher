@@ -2,6 +2,8 @@
 // input 검증
 
 const STAR = "*";
+const DASH = "-";
+const PATTERNS = [2, 3, 4, 1, 9, 4, 5];
 
 const getPromptInput = () => {
   let input;
@@ -27,12 +29,20 @@ const getPromptInput = () => {
   return input;
 };
 
-function getStars(count) {
-  var stars = "";
+function getSigns(count, sign) {
+  let signs = "";
   for (let i = 0; i < count; i++) {
-    stars += STAR;
+    signs += sign;
   }
-  return stars;
+  return signs;
+}
+
+function getStars(count) {
+  return getSigns(count, STAR);
+}
+
+function getDashes(count) {
+  return getSigns(count, DASH);
 }
 
 function printResult(input, stars) {
@@ -52,6 +62,7 @@ const printReverseStars = function (input) {
   // ***
   // **
   // *
+  console.log("[역순 별찍기]");
   for (let i = input; i >= 0; i--) {
     const stars = getStars(i);
     if (stars === "") break;
@@ -59,8 +70,37 @@ const printReverseStars = function (input) {
   }
 };
 
+// 정사각형 출력
+const printSquare = function (input) {
+  // 3
+  // ***
+  // ***
+  // ***
+  console.log("[정사각형 별찍기]");
+  for (let i = 0; i < input; i++) {
+    const stars = getStars(input);
+    console.log(stars);
+    if (i + 1 !== input) console.log(getDashes(input));
+  }
+};
+
+const printPatterns = () => {
+  console.log("[패턴 별찍기]");
+  console.log("저장된 패턴 :", PATTERNS.toString());
+  PATTERNS.map((num) => console.log(`패턴값 ${num}: ${getStars(num)}`));
+};
+
+const printMultipleStars = (...multipleNums) => {
+  console.log("[여러숫자 별찍기]");
+  multipleNums.map((num) =>
+    console.log(`Stars for count ${num}: ${getStars(num)}`)
+  );
+};
+
 console.log("Enter the number of stars (1-10):");
 const input = getPromptInput();
 // printNormalStars(input);
 printReverseStars(input);
 printSquare(input);
+printPatterns();
+printMultipleStars(4, 3, 2, 4, 4, 5, 3, 3, 3, 5, 3, 4, 2, 7, 5, 4);
