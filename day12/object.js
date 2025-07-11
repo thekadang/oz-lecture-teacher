@@ -7,8 +7,11 @@ const person = {
   },
   age: 20,
   isAdult: true,
-  getFullName: function () {
-    return `${this.name.firstName} ${this.name.lastName}`;
+  getFullName: function (isKorean = false) {
+    const fullName = isKorean
+      ? `${this.name.lastName} ${this.name.firstName}`
+      : `${this.name.firstName} ${this.name.lastName}`;
+    return fullName;
   },
   printInfo: function () {
     console.log("printInfo");
