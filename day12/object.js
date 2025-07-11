@@ -9,6 +9,9 @@ const person = {
   isAdult: true,
   printInfo: function () {
     console.log("printInfo");
+    console.log(`name: ${this.name.firstName} ${this.name.lastName}`);
+    console.log(`age: ${age}`);
+    console.log(`isAdult: ${isAdult}`);
   },
 };
 console.log(person);
