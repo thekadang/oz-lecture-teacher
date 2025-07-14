@@ -7,7 +7,13 @@
   <body>
     <button onclick="clickEvent()">클릭</button>
     <input type="text" onfocus="focusEvent()" onblur="blurEvent()" />
+    <button id="click-btn">클릭</button>
     <script>
+      const clickBtnEl = document.querySelector("#click-btn");
+      clickBtnEl.onclick = function () {
+        alert("click by property listener");
+      };
+
       function clickEvent() {
         if (confirm("진행합니까?")) {
           alert("진행");
@@ -16,10 +22,10 @@
         }
       }
       function focusEvent() {
-        alert("focus on");
+        console.log("focus on");
       }
       function blurEvent() {
-        alert("focus out");
+        console.log("focus out");
       }
     </script>
   </body>
