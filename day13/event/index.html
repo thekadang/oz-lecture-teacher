@@ -6,16 +6,20 @@
   </head>
   <body>
     <button onclick="clickEvent()">클릭</button>
+    <input type="text" onfocus="focusEvent()" onblur="blurEvent()" />
     <script>
       function clickEvent() {
-        // alert("click");
-        // let isConfirmed = confirm("진행합니까?");
-        // console.log(isConfirmed);
         if (confirm("진행합니까?")) {
           alert("진행");
         } else {
           alert("취소");
         }
+      }
+      function focusEvent() {
+        alert("focus on");
+      }
+      function blurEvent() {
+        alert("focus out");
       }
     </script>
   </body>
