@@ -45,14 +45,10 @@ function getDashes(count) {
   return getSigns(count, DASH);
 }
 
-function printResult(input, stars) {
-  console.log(`[입력: ${input}] ${stars}`);
-}
-
 // 기본과제
 const printNormalStars = function (input) {
   const stars = getStars(input);
-  printResult(input, stars);
+  console.log(`[입력: ${input}] ${stars}`);
 };
 
 // 역순별출력
