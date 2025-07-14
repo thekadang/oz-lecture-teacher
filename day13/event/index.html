@@ -8,7 +8,14 @@
     <button onclick="clickEvent()">클릭</button>
     <script>
       function clickEvent() {
-        console.log("click");
+        // alert("click");
+        // let isConfirmed = confirm("진행합니까?");
+        // console.log(isConfirmed);
+        if (confirm("진행합니까?")) {
+          alert("진행");
+        } else {
+          alert("취소");
+        }
       }
     </script>
   </body>
