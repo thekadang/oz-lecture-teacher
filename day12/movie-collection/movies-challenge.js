@@ -1,5 +1,6 @@
 // 영화 기본 장르 상수 선언 (const 사용 예시)
-const defaultGenre = "Unknown";
+const DEFAULT_GENRE = "Unknown";
+const FILTER_GENRE = "Sci-Fi";
 
 // 영화 객체 배열 선언 (let 사용 예시)
 let movies = [
@@ -73,9 +74,7 @@ movies.push({
   genre: "",
 });
 
-console.log(movies);
-
-const printMovie = (index, director = "Unknown", movie) => {
+const printMovie = (index, director = DEFAULT_GENRE, movie) => {
   console.log(
     `${index}. Title: ${movie.title}, Director: ${director}, Year: ${movie.year}, Genre: ${movie.genre}`
   );
@@ -83,6 +82,11 @@ const printMovie = (index, director = "Unknown", movie) => {
 };
 
 const printMovies = (movies) => {
+  const moviesFiltered = movies.filter((movie) => movie.genre == FILTER_GENRE);
+  if (moviesFiltered.length === 0) {
+    console.log(`No movies found for genre: ${FILTER_GENRE}`);
+    return;
+  }
   for (let i = 0; i < movies.length; i++) {
     const movie = movies[i];
     if (!movie.title) movie.title = "Unknown";
@@ -95,6 +99,31 @@ const printTotalMovies = (movies) => {
   console.log(`Total Movies: ${movies.length}`);
 };
 
+const printStatistics = (movies) => {
+  // 평균 출판년도
+  let avgYear = 0;
+  for (const movie of movies) {
+    avgYear += Number(movie.year);
+  }
+  avgYear = avgYear / movies.length;
+
+  // 최신영화찾기
+  let lastYear = 0;
+  let lastTitle = "";
+  movies.forEach((movie) => {
+    if (movie.year > lastYear) {
+      lastTitle = movie.title;
+      lastYear = movie.year;
+    }
+  });
+
+  console.log(`Statistics:
+Average Year: ${avgYear}
+Newest Movie: ${lastTitle} (${lastYear})
+    `);
+};
+
 console.log("Movie Collection:");
 printMovies(movies);
 printTotalMovies(movies);
+printStatistics(movies);

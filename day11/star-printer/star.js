@@ -69,7 +69,9 @@ const printReverseStars = function (input) {
 const printSquare = function (input) {
   // 3
   // ***
+  // ---
   // ***
+  // ---
   // ***
   console.log("[정사각형 별찍기]");
   for (let i = 0; i < input; i++) {
