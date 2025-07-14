@@ -7,7 +7,12 @@
   <body>
     <!-- 인라인 이벤트-->
     <button onclick="clickEvent()">클릭</button>
-    <input type="text" onfocus="focusEvent()" onblur="blurEvent()" />
+    <input
+      id="text-input"
+      type="text"
+      onfocus="focusEvent()"
+      onblur="blurEvent()"
+    />
 
     <!-- 프로퍼티 이벤트-->
     <button id="click-btn">클릭</button>
@@ -40,6 +45,12 @@
       function blurEvent() {
         console.log("focus out");
       }
+
+      // event 객체 확인
+      const inputEl = document.querySelector("#text-input");
+      inputEl.addEventListener("keydown", function (event) {
+        console.log(event);
+      });
     </script>
   </body>
 </html>
