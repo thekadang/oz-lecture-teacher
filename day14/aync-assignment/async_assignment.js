@@ -16,7 +16,7 @@ const showTimerSec = (sec) => {
   timerDisplay.textContent = `타이머: ${sec}초`;
 };
 
-const shoiwTiemerComplete = () => {
+const shoiwTimerComplete = () => {
   resetTimerDisp();
   timerDisplay.className = "success";
   timerDisplay.textContent = `타이머 종료!`;
@@ -34,7 +34,7 @@ const processTimer = (sec) => {
     showTimerSec(sec);
     if (sec < 0) {
       clearInterval(timer);
-      shoiwTiemerComplete();
+      shoiwTimerComplete();
     }
   }, 1000);
 };
