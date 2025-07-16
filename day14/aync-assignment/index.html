@@ -20,6 +20,9 @@
       .error {
         color: red;
       }
+      .success {
+        color: green;
+      }
     </style>
   </head>
   <body>
@@ -35,7 +38,13 @@
           placeholder="1-10초 입력"
         />
       </div>
-      <button id="startTimer" class="btn btn-primary">타이머 시작</button>
+      <button
+        id="startTimer"
+        onclick="handleClickTimer()"
+        class="btn btn-primary"
+      >
+        타이머 시작
+      </button>
       <div id="timerDisplay" class="mt-3"></div>
     </div>
     <script src="async_assignment.js"></script>
