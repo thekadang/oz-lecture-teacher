@@ -28,7 +28,6 @@ const jsonStringArr = `[
 const users = JSON.parse(jsonStringArr);
 console.log(jsonStringArr);
 console.log(users);
-users.push("222");
 // const names = ["혜진", "민수"];
 
 // for문사용
