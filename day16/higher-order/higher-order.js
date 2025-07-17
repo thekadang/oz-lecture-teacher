@@ -199,5 +199,5 @@ const a = numbers.filter((num) => num % 2 === 0);
 console.log(a);
 const b = a.map((num) => num * 2);
 console.log(b);
-const c = c.reduce((acc, num) => acc + num, 0);
+const c = b.reduce((acc, num) => acc + num, 0);
 console.log(c);
