@@ -1,6 +1,16 @@
-async function fetchUser(userId) {
+async function login(userId) {
   try {
-    console.log(userId);
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
+    const user = await response.json();
+    console.log(user);
+
+    localStorage.removeItem("user");
+    localStorage.setItem("user", JSON.stringify(user)); // 설정
+    const storedUser = localStorage.getItem("user"); // 조회
+    console.log(storedUser);
+    // localStorage.removeItem("user") // 삭제
   } catch (error) {
     console.log(error);
     showError(error.message);
@@ -15,9 +25,11 @@ function getParams(key) {
 }
 
 function main() {
+  // 해당 사용자가 적절한 id / pw 로 인증을 완료함
   const id = Number(getParams("userId"));
-  console.log(id);
-  fetchUser(id);
+
+  // 해당 사용자 로그인 진행
+  login(id);
 }
 
 main();
