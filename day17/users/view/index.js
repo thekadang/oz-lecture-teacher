@@ -19,6 +19,8 @@ async function fetchMultiple(userId) {
       ul.appendChild(li);
     });
     document.querySelector("#output").appendChild(ul);
+
+    sessionStorage.setItem(`view-${userId}`, [user, posts].toString());
   } catch (error) {
     console.log(error);
     showError(error.message);
@@ -39,7 +41,15 @@ function showError(message) {
 function main() {
   const id = Number(getParams("userId"));
   console.log(id);
-  fetchMultiple(id);
+  const storedData = sessionStorage.getItem(`view-${id}`); // 설정
+  if (storedData) {
+    // sessionStorage 저장된 데이터로 화면을 그려줘
+    console.log(storedData);
+    showData(storedData);
+  } else {
+    // 서버로부터 데이터 조회한 뒤에 화면 그려줘
+    fetchMultiple(id);
+  }
 }
 
 main();
