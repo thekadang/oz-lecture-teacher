@@ -37,8 +37,8 @@ function showError(message) {
 }
 
 function main() {
-  const id = Number(getParams("id"));
-
+  const id = Number(getParams("userId"));
+  console.log(id);
   fetchMultiple(id);
 }
 
