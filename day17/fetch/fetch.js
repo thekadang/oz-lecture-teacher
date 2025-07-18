@@ -21,7 +21,7 @@ async function fetchMultiple(userId) {
     document.querySelector("#output").appendChild(ul);
   } catch (error) {
     console.log(error);
-    document.querySelector("#output").innerHTML = `<h2>${error.message}</h2>`;
+    showError(error.message);
   }
 }
 
@@ -32,5 +32,15 @@ function getParams(key) {
   return id;
 }
 
-const id = getParams("id");
-fetchMultiple(id);
+function showError(message) {
+  document.querySelector("#output").innerHTML = `<h2>${message}</h2>`;
+}
+
+function main() {
+  const id = Number(getParams("id"));
+  if (isNaN(id)) showError("id가 올바르지 않습니다");
+
+  fetchMultiple(id);
+}
+
+main();
