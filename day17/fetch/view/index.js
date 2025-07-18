@@ -38,7 +38,6 @@ function showError(message) {
 
 function main() {
   const id = Number(getParams("id"));
-  if (isNaN(id)) showError("id가 올바르지 않습니다");
 
   fetchMultiple(id);
 }
