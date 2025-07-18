@@ -1,17 +1,15 @@
 async function fetchMultiple() {
-  const [posts, users] = await Promise.all([
-    fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
+  const [user, posts] = await Promise.all([
+    fetch("https://jsonplaceholder.typicode.com/users/2").then((res) =>
       res.json()
     ),
-    fetch("https://jsonplaceholder.typicode.com/users").then((res) =>
+    fetch("https://jsonplaceholder.typicode.com/posts?userId=2").then((res) =>
       res.json()
     ),
   ]);
-
-  console.log(posts.length);
-  console.log(users.length);
-  //   console.log("post.title", post.title);
-  //   console.log("user.name", user.name);
+  console.log("user", user); // obj
+  console.log("posts", posts); // array
+  document.querySelector("#output").innerHTML = `<h2>${user.name}</h2>`;
 }
 
 fetchMultiple();
