@@ -1,11 +1,11 @@
-async function fetchMultiple() {
+async function fetchMultiple(userId) {
   try {
     const [user, posts] = await Promise.all([
-      fetch("https://jsonplaceholder.typicode.com/users/2").then((res) =>
-        res.json()
+      fetch(`https://jsonplaceholder.typicode.com/users/${userId}`).then(
+        (res) => res.json()
       ),
-      fetch("https://jsonplaceholder.typicode.com/posts?userId=2").then((res) =>
-        res.json()
+      fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`).then(
+        (res) => res.json()
       ),
     ]);
     console.log("user", user); // obj
@@ -25,4 +25,12 @@ async function fetchMultiple() {
   }
 }
 
-fetchMultiple();
+// path 파라미터에 매개변수로 받은 key값을 확인하여 value를 반환하는 함수
+function getParams(key) {
+  const url = new URL(location.href);
+  const id = url.searchParams.get(key);
+  return id;
+}
+
+const id = getParams("id");
+fetchMultiple(id);
